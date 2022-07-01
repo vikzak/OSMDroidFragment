@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentHomeBinding
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.MinimapOverlay
 
 
 class HomeFragment : Fragment() {
-
-
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -37,9 +37,24 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-        val mMapView = MapView(inflater.getContext());
-        mMapView.setDestroyMode(false);
-        mMapView.setTag("mapView"); // needed for OpenStreetMapViewTest
+
+//        val v:View = inflater.inflate(R.layout.fragment_home, null)
+//        val myOpenMapView = v.findViewById(R.id.map)
+
+
+
+//        var mMapView = MapView(inflater.getContext())
+//        mMapView.setTileSource(TileSourceFactory.MAPNIK)
+//        mMapView.setBuiltInZoomControls(true);
+//        mMapView.setMultiTouchControls(true);
+//        mMapView.setDestroyMode(false)
+//        //mMapView.setTag("mapView") // needed for OpenStreetMapViewTest
+//
+//        var mMinimapOverlay = MinimapOverlay(inflater.getContext(), mMapView.tileRequestCompleteHandler)
+//        val dm = context!!.resources.displayMetrics
+//        mMinimapOverlay.setWidth(dm.widthPixels / 5)
+//        mMinimapOverlay.setHeight(dm.heightPixels / 5)
+//        mMapView.overlays.add(mMinimapOverlay)
 
        return root
     }
