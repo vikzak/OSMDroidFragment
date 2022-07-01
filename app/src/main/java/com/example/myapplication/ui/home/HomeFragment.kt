@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentHomeBinding
-
-
-
-
+import org.osmdroid.views.MapView
 
 
 class HomeFragment : Fragment() {
+
+
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -38,12 +37,11 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-        val v: View = inflater.inflate(com.example.myapplication.R.layout.fragment_home, null)
-        val myOpenMapView = v.findViewById<T>(com.example.myapplication.R.id.map)
-        return myOpenMapView
-       // return root
+        val mMapView = MapView(inflater.getContext());
+        mMapView.setDestroyMode(false);
+        mMapView.setTag("mapView"); // needed for OpenStreetMapViewTest
 
-
+       return root
     }
 
 
